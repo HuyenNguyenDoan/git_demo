@@ -1,0 +1,122 @@
+.one{
+	 height:80px;
+	 
+
+	 margin:0;
+	}
+.one .title{
+	height:80px;
+	 background-color:#f6f6f6;
+}
+.one .title h2{
+	color:#444;
+}
+.one .login{
+	height:80px;
+	 background-color:#f6f6f6;
+	}
+.one .login .dropdown{
+   margin-top: 30px;
+}
+.one .login .dropdown .glyphicon{
+  color: #444;
+  font-size: 18px;
+}
+
+.two{
+	 height:1700px;
+	 background-color:#F8F8F8;
+	 margin:0;
+}
+
+.two .menu {
+	 height:1700px;
+	 background-color:#777;	 
+}
+.toogle{
+	padding: 10px;
+	width: 100%;
+	background-color: #eee;
+	border: 1px solid #000;
+	color:green;
+	font-size: 20px;
+}
+
+.sub-menu{
+	list-style: none;
+	display: none;
+	 
+}
+ .sub-menu li a{
+	font-size: 18px;
+	text-decoration: none;
+	color: #fff;
+	
+
+}
+.sub-menu li a:hover{
+	color:#48E2C0;
+}
+.two .content{
+	 height:1700px;
+	 background:#A7C3C5;
+	  
+}
+.two .content h2{
+	color: #fff;
+	  
+}
+
+.two .content .table{
+	 margin-top: 20px;
+	  
+}
+.title-cate{
+	height: 60px;
+	color:#F2EEEE;
+	font-size: 25px;
+	text-align: center;
+	margin-bottom: 5px;
+	background: #A29C9C;
+	line-height: 60px;
+}
+.child{
+	color:#4B4949;
+
+}
+
+.three{
+	height: 60px;
+	background:#EAE6E6;
+	margin: 0px;
+}
+.three p{
+	color:#444;
+	font-size: 18px;
+	line-height: 60px;
+	margin-left: 20px;
+}
+
+/*login*/
+.frm_login{
+	width: 400px;
+	height: auto;
+	border: 1px solid #555;
+	margin: auto;
+	padding: 10px;
+	margin-top: 180px;
+	border-radius: 5px;
+	background-color:#f6f6f6;
+}
+
+.frm_edit{
+	width: 700px;
+	height: auto;
+	
+	margin: auto;		
+}
+.click{
+	background:#F7F7F7;
+	color:#449DEF;
+}
+

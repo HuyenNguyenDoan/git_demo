@@ -1,0 +1,129 @@
+<?php
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('admin/dangnhap','UserController@getloginAdmin');
+Route::post('admin/dangnhap','UserController@postloginAdmin');
+Route::get('admin/dangxuat','UserController@getlogoutAdmin');
+Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
+
+Route::group(['prefix'=>'khachhang'],function(){
+       Route::get('danhsach','CustomerController@getAll');  
+       Route::get('sua/{id}','CustomerController@getEdit');
+       Route::post('sua/{id}','CustomerController@postEdit');
+       Route::get('xoa/{id}','CustomerController@getDelete');
+       Route::get('hoadon/{id}','CustomerController@getOrder');    
+     });
+     Route::group(['prefix'=>'danhmuc'],function(){
+       Route::get('danhsach','CategoryController@getAll');
+       Route::get('them','CategoryController@getAdd');
+       Route::post('them','CategoryController@postAdd');
+       Route::get('sua/{id}','CategoryController@getEdit');
+       Route::post('sua/{id}','CategoryController@postEdit');
+        Route::get('xoa/{id}','CategoryController@getDelete');
+     });
+Route::group(['prefix'=>'loaigo'],function(){
+       Route::get('danhsach','Type_of_woodController@getAll');
+       Route::get('them','Type_of_woodController@getAdd');
+       Route::post('them','Type_of_woodController@postAdd');
+       Route::get('sua/{id}','Type_of_woodController@getEdit');
+       Route::post('sua/{id}','Type_of_woodController@postEdit');
+       Route::get('xoa/{id}','Type_of_woodController@getDelete');
+     });
+      Route::group(['prefix'=>'sanpham'],function(){
+       Route::get('danhsach','ProductController@getAll');
+       Route::post('danhsach','ProductController@postAll');
+       Route::get('them','ProductController@getAdd');
+       Route::post('them','ProductController@postAdd');
+       Route::get('sua/{id}','ProductController@getEdit');
+       Route::post('sua/{id}','ProductController@postEdit');
+       Route::get('xoa/{id}','ProductController@getDelete');
+     });
+         Route::group(['prefix'=>'binhluan'],function(){
+        Route::get('xoa/{id}/{idpr}','CommentController@getDelete');
+        });
+       Route::group(['prefix'=>'slide'],function(){
+       Route::get('danhsach','SlideController@getAll');
+       Route::get('them','SlideController@getAdd');
+       Route::post('them','SlideController@postAdd');
+       Route::get('sua/{id}','SlideController@getEdit');
+       Route::post('sua/{id}','SlideController@postEdit');
+      Route::get('xoa/{id}','SlideController@getDelete');
+     });
+
+    Route::group(['prefix'=>'hinhanh'],function(){
+       Route::get('danhsach','ImagesController@getAll');
+       Route::get('them','ImagesController@getAdd');
+       Route::post('them','ImagesController@postAdd');
+       Route::get('sua/{id}','ImagesController@getEdit');
+       Route::post('sua/{id}','ImagesController@postEdit');
+      Route::get('xoa/{id}','ImagesController@getDelete');
+     });
+
+ Route::group(['prefix'=>'nguoidung'],function(){
+       Route::get('danhsach','UserController@getAll');
+       Route::post('danhsach','UserController@postAll');
+        Route::get('them','UserController@getAdd');
+       Route::post('them','UserController@postAdd');
+       Route::get('sua/{id}','UserController@getEdit');
+       Route::post('sua/{id}','UserController@postEdit');
+       Route::get('xoa/{id}','UserController@getDelete');
+     });
+       Route::group(['prefix'=>'lienhe'],function(){
+       Route::get('danhsach','ContactController@getAll');
+       Route::get('xoa/{id}','ContactController@getDelete');
+     });
+       Route::group(['prefix'=>'tintuc'],function(){
+       Route::get('danhsach','NewsController@getAll');
+       Route::get('them','NewsController@getAdd');
+       Route::post('them','NewsController@postAdd');
+       Route::get('sua/{id}','NewsController@getEdit');
+       Route::post('sua/{id}','NewsController@postEdit');
+       Route::get('xoa/{id}','NewsController@getDelete');
+     });
+      Route::group(['prefix'=>'hoadon'],function(){
+       Route::get('danhsach','OrderController@getAll'); 
+       Route::post('danhsach','OrderController@postAll');
+       Route::get('chitiethoadon/{id}','OrderController@getOrderDetails');
+       Route::get('sua/{id}','OrderController@getEdit');
+       Route::post('sua/{id}','OrderController@postEdit'); 
+       Route::get('thongke','OrderController@getDasboard');
+     });
+Route::group(['prefix'=>'chitiethoadon'],function(){
+       Route::get('danhsach','OrderDetailsController@getAll');
+       Route::get('them','OrderDetailsController@getAdd');
+       Route::post('them','OrderDetailsController@postAdd');
+       Route::get('sua/{id}','OrderDetailsController@getEdit');
+       Route::post('sua/{id}','OrderDetailsController@postEdit');    
+       Route::get('xoa/{id}','OrderDetailsController@getDelete');
+     });
+});
+Auth::routes();
+Route::get('/home', 'HomeController@index');
+//frontend
+Route::get('trangchu','ClientController@home');
+Route::get('lienhe','ClientController@getContact');
+Route::post('lienhe','ClientController@postContact');
+Route::get('loaisanpham/{id}','ClientController@category');
+Route::get('loaigo/{id}','ClientController@type_of_wood');
+Route::get('chitietsanpham/{id}','ClientController@details');
+Route::get('tintuc','ClientController@getNews');
+Route::get('dangnhap','ClientController@getLogin');
+Route::post('dangnhap','ClientController@postLogin');
+Route::get('dangxuat','ClientController@getLogout');
+Route::post('binhluan/{id}','CommentController@postComment');
+Route::get('nguoidung','ClientController@getUser');
+Route::post('nguoidung','ClientController@postUser');
+Route::get('dangky','ClientController@getRegister');
+Route::post('dangky','ClientController@postRegister');
+Route::post('timkiem','ClientController@postSearch');
+Route::get('themgiohang/{id}','CartController@getAddCart');
+Route::get('giohang','CartController@Cart');
+Route::get('xoasanpham/{id}','CartController@DeleteItem');
+Route::get('capnhat/{id}/{qty}','CartController@Update');
+Route::get('huygiohang','CartController@DestroyCart');
+Route::get('dathang','ClientController@getOrder');
+Route::post('dathang','ClientController@postOrder');
+
+
+
